@@ -24,8 +24,8 @@ html body {
   justify-content: space-evenly;
 }
 #main .section {
-  height: 90%;
-  width: 25vw;
+  height: 80%;
+  width: 30vw;
   border-radius: 10px;
   background-color: #f5f2eb;
   box-shadow: 5px 10px 15px 5px rgb(174, 174, 174);
@@ -71,16 +71,17 @@ html body {
   padding: 2px 5px;
   margin: 3px 0px;
   --size:2rem;
+  transition: transform 200ms;
 }
 .element:hover {
-  background-color: white;
+  transform: scale(1.1);
 }
 .element input {
   cursor: pointer;
   appearance: none;
   aspect-ratio: 1;
   height: var(--size);
-  border: 2px black solid;
+  border: 2.5px #493e76 solid;
   display: grid;
   place-items: center;
 }
@@ -99,7 +100,32 @@ html body {
   cursor: default;
   color: #0b0a05;
   font-size: var(--size);
-  font-weight: 100;
+  font-weight: 400;
+}
+
+.element.check {
+  opacity: 0.6;
+}
+.element.check p {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+@media screen and (max-width: 900px) {
+  #main {
+    flex-direction: column;
+    height: 100%;
+  }
+  #main .section {
+    width: 90%;
+    height: 32%;
+  }
+  #main .section h1 {
+    font-size: 3.2rem;
+  }
+  .element {
+    --size:1.5rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

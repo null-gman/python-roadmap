@@ -23,9 +23,10 @@ html{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+
     .section{
-        height: 90%;
-        width: 25vw;
+        height: 80%;
+        width: 30vw;
         border-radius: 10px;
         background-color: #f5f2eb;
         box-shadow:5px 10px 15px 5px rgb(174, 174, 174);
@@ -48,9 +49,7 @@ html{
             }
         }
         .content{
-
             position: relative;
-
             section{
                 position: absolute;
                 padding: 0 10px;
@@ -60,10 +59,8 @@ html{
                 overflow: auto;
                 scrollbar-width: thin;
             }
-            
         }
     }
-    
 }
 
 .element{
@@ -75,15 +72,16 @@ html{
     padding: 2px 5px;
     margin: 3px 0px;
     --size:2rem;
+    transition: transform 200ms;
     &:hover{
-        background-color: white;
+        transform: scale(1.1);
     }
     input{
         cursor: pointer;
         appearance: none;
         aspect-ratio: 1;
         height: var(--size);
-        border:2px black solid;
+        border:2.5px #493e76 solid;
         display: grid;
         place-items: center;
         &::after{
@@ -101,7 +99,35 @@ html{
         cursor: default;
         color: #0b0a05;
         font-size:var(--size);
-        font-weight: 100;
+        font-weight: 400;
+
+    }
+
+}
+.element.check{
+    opacity: .6;
+    p{
+        text-decoration: line-through;
+        text-decoration-thickness:2px ;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    #main{
+        flex-direction: column;
+        height: 100%;
+        .section{
+            width: 90%;
+            height: 32%;
+            
+            h1{
+                font-size: 3.2rem;
+            }
+        }
+    }
+    .element{
+        --size:1.5rem;
     }
 
 }
