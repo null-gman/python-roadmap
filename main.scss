@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+
+html{
+    height: 100vh;
+    body{
+        background-color: #f5f5ed;
+        display: grid;
+        place-content:center;
+        height: 100vh;
+    }
+}
+
+#main{  
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    .section{
+        height: 90%;
+        width: 25vw;
+        border-radius: 10px;
+        background-color: #f5f2eb;
+        box-shadow:5px 10px 15px 5px rgb(174, 174, 174);
+        padding: 15px 10px;
+        display: flex;
+        flex-direction: column;
+        h1{
+            position: relative;
+            color: #493e76;
+            font-size: 4rem;
+            font-weight: 900;
+            padding: 0px 0px 5px 0px;
+            &::after{
+                content: "";
+                position: absolute;
+                bottom: 0;left: 0;
+                height: 100%;
+                width: 70%;
+                border-bottom: 1.5px #493e76 solid;
+            }
+        }
+        .content{
+
+            position: relative;
+
+            section{
+                position: absolute;
+                padding: 0 10px;
+                inset: 0;
+                margin: auto;
+                height: 95%;
+                overflow: auto;
+                scrollbar-width: thin;
+            }
+            
+        }
+    }
+    
+}
+
+.element{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: fit-content;
+    width: fit-content;
+    padding: 2px 5px;
+    margin: 3px 0px;
+    --size:2rem;
+    &:hover{
+        background-color: white;
+    }
+    input{
+        cursor: pointer;
+        appearance: none;
+        aspect-ratio: 1;
+        height: var(--size);
+        border:2px black solid;
+        display: grid;
+        place-items: center;
+        &::after{
+            content: "";
+            aspect-ratio: 1;
+            height: 100%;
+            background-color:#493e76;
+            transform: scale(0);
+            transition: transform 200ms;
+        }
+        &:checked::after{
+            transform: scale(1);
+        }
+    }p{
+        cursor: default;
+        color: #0b0a05;
+        font-size:var(--size);
+        font-weight: 100;
+    }
+
+}
