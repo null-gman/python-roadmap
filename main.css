@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -6,63 +7,66 @@
   box-sizing: border-box;
 }
 
-html {
-  height: 100vh;
-}
 html body {
   background-color: #f5f5ed;
   display: grid;
   place-content: center;
   height: 100vh;
+  height: 100svh;
 }
 
+/* for genral styleing fot * , body , html*/
 #main {
-  height: 90vh;
+  height: 100vh;
+  height: 100svh;
   width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  background-color: #ceccc9;
+  gap: 35px;
+  padding: 35px;
 }
-#main .section {
-  height: 80%;
-  width: 30vw;
+#main > .section {
+  /*the 3 sec basicsSec intermidiateSec expertSec*/
+  height: 100%;
+  flex-grow: 1;
   border-radius: 10px;
   background-color: #f5f2eb;
-  box-shadow: 5px 10px 15px 5px rgb(174, 174, 174);
+  box-shadow: 0 4px 8px 0 rgba(73, 62, 118, 0.2784313725);
   padding: 15px 10px;
   display: flex;
   flex-direction: column;
 }
-#main .section h1 {
+#main > .section > .title-Sec {
   position: relative;
   color: #493e76;
   font-size: 4rem;
   font-weight: 900;
+  height: 5rem;
   padding: 0px 0px 5px 0px;
 }
-#main .section h1::after {
+#main > .section > .title-Sec::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   height: 100%;
   width: 70%;
-  border-bottom: 1.5px #493e76 solid;
+  border-bottom: 2px #493e76 solid;
 }
-#main .section .content {
-  position: relative;
+#main > .section > .content-Sec {
+  height: calc(100% - 5rem);
+  /*It’s not a bug, it’s a feature*/
+  padding: 10px 0px 0px 0px;
 }
-#main .section .content section {
-  position: absolute;
-  padding: 0 10px;
-  inset: 0;
-  margin: auto;
-  height: 95%;
-  overflow: auto;
+#main > .section > .content-Sec > .contaner {
+  height: 100%;
+  overflow-y: scroll;
   scrollbar-width: thin;
 }
 
-.element {
+/*to not be nested hell above*/
+#main > .section > .content-Sec > .contaner > .todo-element {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -70,22 +74,21 @@ html body {
   width: fit-content;
   padding: 2px 5px;
   margin: 3px 0px;
-  --size:2rem;
   transition: transform 200ms;
 }
-.element:hover {
+#main > .section > .content-Sec > .contaner > .todo-element:hover {
   transform: scale(1.1);
 }
-.element input {
+#main > .section > .content-Sec > .contaner > .todo-element > .checkBoxTodo {
   cursor: pointer;
   appearance: none;
   aspect-ratio: 1;
-  height: var(--size);
+  height: 2rem;
   border: 2.5px #493e76 solid;
   display: grid;
   place-items: center;
 }
-.element input::after {
+#main > .section > .content-Sec > .contaner > .todo-element > .checkBoxTodo::after {
   content: "";
   aspect-ratio: 1;
   height: 100%;
@@ -93,20 +96,20 @@ html body {
   transform: scale(0);
   transition: transform 200ms;
 }
-.element input:checked::after {
+#main > .section > .content-Sec > .contaner > .todo-element > .checkBoxTodo:checked::after {
   transform: scale(1);
 }
-.element p {
+#main > .section > .content-Sec > .contaner > .todo-element > .TodoContent {
   cursor: default;
   color: #0b0a05;
-  font-size: var(--size);
+  font-size: 2rem;
   font-weight: 400;
 }
 
-.element.check {
+#main > .section > .content-Sec > .contaner > .todo-element.todoDone {
   opacity: 0.6;
 }
-.element.check p {
+#main > .section > .content-Sec > .contaner > .todo-element.todoDone > .TodoContent {
   text-decoration: line-through;
   text-decoration-thickness: 2px;
 }
@@ -114,17 +117,21 @@ html body {
 @media screen and (max-width: 900px) {
   #main {
     flex-direction: column;
-    height: 100%;
+    gap: 8px;
+    padding: 8px;
   }
-  #main .section {
-    width: 90%;
-    height: 32%;
+  #main > .section {
+    width: 100%;
   }
-  #main .section h1 {
+  #main > .section > .title-Sec {
     font-size: 3.2rem;
   }
-  .element {
-    --size:1.5rem;
+  #main > .section > .content-Sec > .contaner > .todo-element > .TodoContent {
+    font-size: 1.7rem;
+  }
+  #main > .section > .content-Sec > .contaner > .todo-element > .checkBoxTodo {
+    height: 1.7rem;
+    border: 2px #493e76 solid;
   }
 }
 
