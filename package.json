@@ -7,7 +7,8 @@
   "scripts": {
     "bundeljs" : "browserify ./scripts/script.js > ./script.js",
     "bundelcss" : "sass ./sass/main.scss ./main.css",
-    "sassStream" : "sass --watch ./sass/main.scss ./main.css"
+    "sassStream" : "sass --watch ./sass/main.scss ./main.css",
+    "start" : "browserify ./scripts/script.js > ./script.js && sass ./sass/main.scss ./main.css"
   },
   "repository": {
     "type": "git",
