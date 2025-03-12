@@ -77,19 +77,20 @@ content.expert = ["Decorators","Genrators","Context Managers","Metaclasses","Par
 
 
 function main() {
-
+    /*for debuging*/
     // localStorage.removeItem("webData");
-    //for debuging
+    /*for debuging*/
+
     const localStoreFun = require("./localStore.js");
     const isDataFound = localStoreFun.checkWebLocalStore();
-    // console.log(isDataFound);
+
     if (!isDataFound) {
         localStoreFun.setWebLocalStoreForFristTime(content);
     }
 
     let data = localStoreFun.getWebLocalStoreData();
     data = JSON.parse(data);
-    // console.log(data);
+
 
     const {renderTodos} = require("./render.js");
     renderTodos(data);
