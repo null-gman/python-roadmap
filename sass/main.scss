@@ -1,0 +1,147 @@
+@use './genral';/* for genral styleing fot * , body , html*/
+
+
+#main{  
+    height: 100vh;
+    height: 100svh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    background-color: #ceccc9;
+    $gap-padding:35px;
+    gap: $gap-padding;
+    padding: $gap-padding;
+    >.section{
+        /*the 3 sec basicsSec intermidiateSec expertSec*/
+        height: 100%;
+        flex-grow: 1;
+        border-radius: 10px;
+
+        background-color: #f5f2eb;
+        box-shadow: 0 4px 8px 0  #493e7647;
+
+        padding: 15px 10px;
+        display: flex;
+        flex-direction: column;
+        $titleTextSize: 4rem;
+        >.title-Sec{
+            position: relative;
+            color: #493e76;
+            // background-color: red;
+            font-size: $titleTextSize;
+            font-weight: 900;
+            height: calc( $titleTextSize + 1rem);
+            padding: 0px 0px 5px 0px;
+            &::after{
+                content: "";
+                position: absolute;
+                bottom: 0;left: 0;
+                height: 100%;
+                width: 70%;
+                border-bottom: 2px #493e76 solid;
+            }
+        }
+        >.content-Sec{
+
+            height:calc(100% - ($titleTextSize + 1rem));
+            // background-color: green;
+            /*It’s not a bug, it’s a feature*/
+            padding: 10px 0px 0px 0px;
+            >.contaner{
+                height: 100%;
+    
+                // overflow-y: scroll;
+                overflow-y: scroll;
+                
+                scrollbar-width: thin;
+                // padding: 0 10px;
+            }
+        }
+    }
+}
+
+
+/*to not be nested hell above*/
+#main >.section >.content-Sec >.contaner >.todo-element{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: fit-content;
+    width: fit-content;
+    padding: 2px 5px;
+    margin: 3px 0px;
+    transition: transform 200ms;
+    &:hover{
+        transform: scale(1.1);
+    }
+
+    $todoContentSize : 2rem;
+    >.checkBoxTodo{
+        cursor: pointer;
+        appearance: none;
+        aspect-ratio: 1;
+        height: $todoContentSize ;
+        border:2.5px #493e76 solid;
+        display: grid;
+        place-items: center;
+        &::after{
+            content: "";
+            aspect-ratio: 1;
+            height: 100%;
+            background-color:#493e76;
+            transform: scale(0);
+            transition: transform 200ms;
+        }
+        &:checked::after{
+            transform: scale(1);
+        }
+    }
+
+    >.TodoContent{
+        cursor: default;
+        color: #0b0a05;
+        font-size:$todoContentSize ;
+        font-weight: 400;
+    }
+
+}
+
+//the event when chect the todo-element  
+#main >.section >.content-Sec >.contaner >.todo-element.todoDone{
+    opacity: .6;
+    >.TodoContent{
+        text-decoration: line-through;
+        text-decoration-thickness:2px ;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    #main{
+        flex-direction: column;
+        $gap-padding : 8px;
+        gap: $gap-padding;
+        padding: $gap-padding;
+        $titleTextSize: 3rem;
+        >.section{
+            width: 100%;
+
+            >.title-Sec{
+                font-size: 3.2rem;
+            }
+        }
+    }
+
+    #main >.section >.content-Sec >.contaner >.todo-element{
+
+        $todoContentSize : 1.7rem;
+        >.TodoContent{
+            font-size:$todoContentSize;
+        }
+        >.checkBoxTodo{
+            height: $todoContentSize;
+            border:2px #493e76 solid;
+        }
+    }
+
+}
