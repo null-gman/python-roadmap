@@ -1,0 +1,17 @@
+{
+  "name": "python-roadmap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "type": "commonjs",
+  "scripts": {
+    "bundeljs" : "browserify ./scripts/script.js > ./script.js",
+    "bundelcss" : "sass ./sass/main.scss ./main.css",
+    "sassStream" : "sass --watch ./sass/main.scss ./main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/null-gman/python-roadmap.git"
+  },
+  "homepage": "https://github.com/null-gman/python-roadmap#readme"
+}
