@@ -5,7 +5,7 @@ it's just an image i saw on the internet , and my frind ask me to make it a webs
 # how it's works ?
 using the **localStorage** in the browser .
 
-# how to compile the project ?
+# how to build the project ?
 1. install  [sass](https://github.com/sass/sass)  and  [browserify](https://github.com/browserify/browserify) .
 2. run : 
 ```
